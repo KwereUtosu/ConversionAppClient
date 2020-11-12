@@ -1,0 +1,57 @@
+<div class="conversion-inputs">
+  <div class="radio">
+    <mat-radio-group aria-label="Select an option" [(ngModel)]="measurement">
+      <mat-radio-button value="temperature">Temperature</mat-radio-button>
+      <mat-radio-button value="volume">Volume</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Input</mat-label>
+      <input matInput [(ngModel)]="input" type="number"/>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>From</mat-label>
+      <mat-select [(ngModel)]="unit1">
+        <mat-option *ngFor="let unit1 of units[measurement]" [value]="unit1">
+          {{unit1}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>To</mat-label>
+      <mat-select [(ngModel)]="unit">
+        <mat-option *ngFor="let unit of units[measurement]" [value]="unit">
+          {{unit}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Student's Answer</mat-label>
+      <input matInput [(ngModel)]="response"/>
+    </mat-form-field>
+  </div>
+  <div class="mybutton">
+    <button class="medium-width" (click)="submit()">Submit</button>
+  </div>
+
+  <div>
+    <mat-card class="medium-width">
+      <div>Result</div>
+      <div [style.color]="answer === 'correct' ? 'rgb(33 162 33)': 'tomato'">{{answer}}</div>
+    </mat-card>
+  </div>
+
+</div>
+
+
+
+
+
+
